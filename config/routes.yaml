@@ -1,0 +1,6 @@
+index:
+   path: /
+   controller: App\Controller\HomeController::index
+category:
+    path:     /api/category
+    controller: App\Controller\CategoryController::list
