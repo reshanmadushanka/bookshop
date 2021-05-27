@@ -16,8 +16,12 @@ git clone https://github.com/reshanmadushanka/bookshop.git
 ```
 composer install
 ```
+### 3. Install react dependencies
 
-### 3. Install assets and dump js routing
+```
+yarn install
+```
+### 4. Install assets and dump js routing
 
 ```
 php bin/console assets:install --symlink
@@ -27,7 +31,7 @@ php bin/console assets:install --symlink
 php bin/console fos:js-routing:dump
 ```
 
-### 4. Set-up Database
+### 5. Set-up Database
 
 Create database if it doesn't exist.
 ```
@@ -37,7 +41,16 @@ Create tables based on the Entity classes.
 ```
 php bin/console doctrine:schema:update --force
 ```
+### 6. Run Project
 
+run symfony project.
+```
+symfony serve
+```
+Create tables based on the Entity classes.
+```
+yarn run encore dev --watch
+```
 ## License
 
 This bundle is under the MIT license. See the complete license in the bundle:
