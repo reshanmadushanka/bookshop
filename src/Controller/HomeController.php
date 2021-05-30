@@ -14,8 +14,6 @@ class HomeController extends AbstractController
      */
     public function index(AuthenticationUtils $authenticationUtils): Response
     {
-        return $this->render('home/index.html.twig', [
-            'controller_name' => 'HomeController',
-        ]);
+        return $this->render('front.html.twig');
     }
 }

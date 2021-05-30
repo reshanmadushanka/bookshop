@@ -4222,6 +4222,11 @@ react-transition-group@^2.3.1:
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
 
+react-use-cart@^1.11.1:
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/react-use-cart/-/react-use-cart-1.11.1.tgz#b85a655bdf1fea56d35d6da588d4641bc2ab55ea"
+  integrity sha512-TK8Ff4Bz9VnrNhBhVTPxTdT+aWQctmsOksQChO/3L75S3SL0tJNQ9dyFAKT6g9Awv3uxLh7FeR4YhabnjhfuSQ==
+
 react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"

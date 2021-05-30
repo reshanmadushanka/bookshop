@@ -2,5 +2,5 @@ index:
    path: /
    controller: App\Controller\HomeController::index
 category:
-    path:     /api/category
+    path:     /apis/category
     controller: App\Controller\CategoryController::list

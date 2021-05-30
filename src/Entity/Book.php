@@ -3,14 +3,17 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\BooksRepository;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+use App\Repository\BookRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
- * @ORM\Entity(repositoryClass=BooksRepository::class)
+ * @ApiResource(attributes={"pagination_enabled"=false})
+ * @ApiFilter(SearchFilter::class, properties={"category": "exact"})
+ * @ORM\Entity(repositoryClass=BookRepository::class)
  */
-class Books
+class Book
 {
     /**
      * @ORM\Id
@@ -25,7 +28,12 @@ class Books
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=400, nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $category;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
@@ -35,10 +43,14 @@ class Books
     private $price;
 
     /**
-     * @ORM\OneToOne(targetEntity=Category::class, cascade={"persist", "remove"})
+     * @ORM\Column(type="boolean")
      */
-    private $category;
+    private $status;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $count;
 
     public function getId(): ?int
     {
@@ -53,6 +65,18 @@ class Books
     public function setTitle(?string $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function getCategory(): ?int
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?int $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
@@ -81,14 +105,26 @@ class Books
         return $this;
     }
 
-    public function getCategory(): ?Category
+    public function getStatus(): ?bool
     {
-        return $this->category;
+        return $this->status;
     }
 
-    public function setCategory(?Category $category): self
+    public function setStatus(bool $status): self
     {
-        $this->category = $category;
+        $this->status = $status;
+
+        return $this;
+    }
+
+    public function getCount(): ?int
+    {
+        return $this->count;
+    }
+
+    public function setCount(?int $count): self
+    {
+        $this->count = $count;
 
         return $this;
     }
